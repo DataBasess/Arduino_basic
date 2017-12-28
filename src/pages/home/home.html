@@ -1,14 +1,21 @@
+
 <ion-header>
+
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
+    <ion-title>home</ion-title>
   </ion-navbar>
+
 </ion-header>
 
+
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <ion-list-header>Device-List</ion-list-header>
+    <ion-item *ngFor="let device of devicelist | async" (click)="switch(device)">       
+        <ion-icon name='md-bulb' item-start></ion-icon>
+        {{device.key}}::{{device.control}}
+        <ion-icon *ngIf="device.control==0" name='md-power' item-end color="secondary"></ion-icon>
+        <ion-icon *ngIf="device.control==1" name='md-power' item-end ></ion-icon>            
+    </ion-item>
+  </ion-list>
 </ion-content>
