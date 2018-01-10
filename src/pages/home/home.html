@@ -12,10 +12,14 @@
   <ion-list>
     <ion-list-header>Device-List</ion-list-header>
     <ion-item *ngFor="let device of devicelist | async" (click)="switch(device)">       
-        <ion-icon name='md-bulb' item-start></ion-icon>
-        {{device.key}}::{{device.control}}
-        <ion-icon *ngIf="device.control==0" name='md-power' item-end color="secondary"></ion-icon>
-        <ion-icon *ngIf="device.control==1" name='md-power' item-end ></ion-icon>            
+        <ion-icon name='{{device.icon}}' item-start></ion-icon>
+        {{device.key}} : 
+        <div *ngIf="device.key==Light_bulb">{{device.control}}</div>
+        <div *ngIf="device.key!='Light_bulb'">{{device.control}}</div>
+        <div *ngIf="device.control==1">เปิด</div>
+        <div *ngIf="device.control==0">ปิด</div>
+        <ion-icon *ngIf="device.control==1" name='md-power' item-end color="secondary"></ion-icon>
+        <ion-icon *ngIf="device.control==0" name='md-power' item-end ></ion-icon>            
     </ion-item>
   </ion-list>
 </ion-content>

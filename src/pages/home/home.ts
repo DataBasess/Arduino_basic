@@ -33,15 +33,18 @@ export class HomePage {
 
   switch(device:Device){
     console.log('Device :',device.control)
-    if(device.control==0){
-      let d = new Device(1)
-      console.log('setDevice :',d.control)
-      this.database.switchDevice(device.key,d);
-    }else if(device.control==1){
-      let d = new Device(0)
-      console.log('setDevice :',d.control)
-      this.database.switchDevice(device.key,d);
+    if(device.key='Light_bulb'){
+      if(device.control==0){
+        let d = new Device(1)
+        console.log('setDevice :',d.control)
+        this.database.switchDevice(device.key,d);
+      }else if(device.control==1){
+        let d = new Device(0)
+        console.log('setDevice :',d.control)
+        this.database.switchDevice(device.key,d);
+      }
     }
+    
     
   }
 
